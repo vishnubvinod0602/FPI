@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fortune Performance Indicator (FPI)</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Fortune Performance Indicator</h1>
+
+    <p>Weekly UPSC Performance Tracker</p>
+
+</header>
+
+<div class="container">
+
+    <!-- =========================
+         Candidate Details
+    ========================== -->
+
+    <section class="card">
+
+        <h2>Candidate Details</h2>
+
+        <div class="grid">
+
+            <div class="field">
+
+                <label for="candidateName">Candidate Name</label>
+
+                <input
+                    type="text"
+                    id="candidateName"
+                    placeholder="Enter Candidate Name">
+
+            </div>
+
+            <div class="field">
+
+                <label for="weekDate">Week Starting</label>
+
+                <input
+                    type="date"
+                    id="weekDate">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         Learning Index
+    ========================== -->
+
+    <section class="card">
+
+        <h2>Learning Index (40%)</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Activity</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <!-- GS CLASS -->
+
+            <tr>
+
+                <td>GS Class</td>
+
+                <td><input type="checkbox" id="gs_mon"></td>
+                <td><input type="checkbox" id="gs_tue"></td>
+                <td><input type="checkbox" id="gs_wed"></td>
+                <td><input type="checkbox" id="gs_thu"></td>
+                <td><input type="checkbox" id="gs_fri"></td>
+                <td><input type="checkbox" id="gs_sat"></td>
+
+            </tr>
+
+            <!-- NEWSPAPER -->
+
+            <tr>
+
+                <td>Newspaper</td>
+
+                <td><input type="checkbox" id="news_mon"></td>
+                <td><input type="checkbox" id="news_tue"></td>
+                <td><input type="checkbox" id="news_wed"></td>
+                <td><input type="checkbox" id="news_thu"></td>
+                <td><input type="checkbox" id="news_fri"></td>
+                <td><input type="checkbox" id="news_sat"></td>
+
+            </tr>
+
+            <!-- OPTIONAL CLASS -->
+
+            <tr>
+
+                <td>Optional Class</td>
+
+                <td><input type="checkbox" id="opt_mon"></td>
+                <td><input type="checkbox" id="opt_tue"></td>
+                <td><input type="checkbox" id="opt_wed"></td>
+                <td><input type="checkbox" id="opt_thu"></td>
+                <td><input type="checkbox" id="opt_fri"></td>
+                <td><input type="checkbox" id="opt_sat"></td>
+
+            </tr>
+
+            <!-- DAILY NEWS ANALYSIS -->
+
+            <tr>
+
+                <td>Daily News Analysis</td>
+
+                <td><input type="checkbox" id="dna_mon"></td>
+                <td><input type="checkbox" id="dna_tue"></td>
+                <td><input type="checkbox" id="dna_wed"></td>
+                <td><input type="checkbox" id="dna_thu"></td>
+                <td><input type="checkbox" id="dna_fri"></td>
+                <td><input type="checkbox" id="dna_sat"></td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+    
+        <!-- =========================
+         Reinforcement Index
+    ========================== -->
+
+    <section class="card">
+
+        <h2>Reinforcement Index (40%)</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Activity</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <!-- GS REVISION -->
+
+            <tr>
+
+                <td>GS Revision</td>
+
+                <td><input type="checkbox" id="gsr_mon"></td>
+                <td><input type="checkbox" id="gsr_tue"></td>
+                <td><input type="checkbox" id="gsr_wed"></td>
+                <td><input type="checkbox" id="gsr_thu"></td>
+                <td><input type="checkbox" id="gsr_fri"></td>
+                <td><input type="checkbox" id="gsr_sat"></td>
+
+            </tr>
+
+            <!-- OPTIONAL REVISION -->
+
+            <tr>
+
+                <td>Optional Revision</td>
+
+                <td><input type="checkbox" id="opr_mon"></td>
+                <td><input type="checkbox" id="opr_tue"></td>
+                <td><input type="checkbox" id="opr_wed"></td>
+                <td><input type="checkbox" id="opr_thu"></td>
+                <td><input type="checkbox" id="opr_fri"></td>
+                <td><input type="checkbox" id="opr_sat"></td>
+
+            </tr>
+
+            <!-- WEEKLY TEST PREPARATION -->
+
+            <tr>
+
+                <td>Weekly Test Preparation</td>
+
+                <td><input type="checkbox" id="wtp_mon"></td>
+                <td><input type="checkbox" id="wtp_tue"></td>
+                <td><input type="checkbox" id="wtp_wed"></td>
+                <td><input type="checkbox" id="wtp_thu"></td>
+                <td><input type="checkbox" id="wtp_fri"></td>
+                <td><input type="checkbox" id="wtp_sat"></td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- =========================
+         Performance Index
+    ========================== -->
+
+    <section class="card">
+
+        <h2>Performance Index (20%)</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>Activity</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <!-- ANSWER WRITING -->
+
+            <tr>
+
+                <td>Answer Writing</td>
+
+                <td><input type="checkbox" id="aw_mon"></td>
+                <td><input type="checkbox" id="aw_tue"></td>
+                <td><input type="checkbox" id="aw_wed"></td>
+                <td><input type="checkbox" id="aw_thu"></td>
+                <td><input type="checkbox" id="aw_fri"></td>
+                <td><input type="checkbox" id="aw_sat"></td>
+
+            </tr>
+
+            <!-- WEEKLY TEST -->
+
+            <tr>
+
+                <td colspan="6">
+                    Weekly Test Attempted
+                </td>
+
+                <td>
+                    <input
+                        type="checkbox"
+                        id="weeklyTest">
+                </td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- =========================
+         Weekly Result
+    ========================== -->
+
+    <section
+        class="card result-card"
+        id="result">
+
+        <h2>Weekly Result</h2>
+
+        <div class="score-grid">
+
+            <div class="score-box">
+
+                <h3>Learning Index</h3>
+
+                <h1 id="learningScore">0</h1>
+
+                <small>Maximum: 210</small>
+
+            </div>
+
+            <div class="score-box">
+
+                <h3>Reinforcement Index</h3>
+
+                <h1 id="reinforcementScore">0</h1>
+
+                <small>Maximum: 168</small>
+
+            </div>
+
+            <div class="score-box">
+
+                <h3>Performance Index</h3>
+
+                <h1 id="performanceScore">0</h1>
+
+                <small>Maximum: 105</small>
+
+            </div>
+
+            <div class="score-box total">
+
+                <h3>Overall FPI</h3>
+
+                <h1 id="fpiScore">0%</h1>
+
+                <small>Weighted Score</small>
+
+            </div>
+
+        </div>
+
+        <div style="margin-top:30px;text-align:center;">
+
+            <h2 id="status">Status : --</h2>
+
+        </div>
+
+    </section>
+    
+        <!-- =========================
+         Action Buttons
+    ========================== -->
+
+    <section class="buttons">
+
+        <button
+            id="calculateBtn"
+            type="button">
+
+            📊 Calculate FPI
+
+        </button>
+
+        <button
+            id="downloadBtn"
+            type="button">
+
+            📄 Download PDF
+
+        </button>
+
+        <button
+            id="clearBtn"
+            type="button">
+
+            🗑️ Clear Data
+
+        </button>
+
+    </section>
+
+</div>
+
+<!-- =========================
+     Footer
+========================== -->
+
+<footer>
+
+    <p>
+        © 2026 Fortune Performance Indicator (FPI)
+    </p>
+
+    <p>
+        Developed for UPSC Weekly Performance Tracking
+    </p>
+
+</footer>
+
+<!-- =========================
+     JavaScript Files
+========================== -->
+
+<script src="js/cookies.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+
+</html>
